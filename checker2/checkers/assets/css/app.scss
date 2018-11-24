@@ -1,0 +1,419 @@
+@import "bootstrap";
+//http://code2care.org/pages/chessboard-with-pieces-using-pure-html-and-css/
+// Building a board css styles inspired from this
+// Making the buttons 3d and adding transition effects
+// https://tympanus.net/codrops/2012/08/08/circle-hover-effects-with-css-transitions/
+.mainBG{
+    
+    background-image: url("../images/mainBG.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+body { 
+    font-size: 20pt; 
+}
+
+
+.bg {
+    
+    background-image: url("../images/bkimgae.png");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.tmp {
+    
+    background-image: url("../images/tmp.png");
+    height: 100%; 
+    background-position: center;
+    border-style: inset;
+}
+
+
+#checkerbgboard {
+    height: 100%;
+    width: 86%;
+    margin: 0 auto;
+    margin-top: 7%;
+    margin-right: 4.5%;
+    //margin-bottom: 70px;
+    //box-shadow: 10px 10px 5px grey;
+
+}
+.invisible{
+    visibility: hidden;
+}
+.whitemarble {
+
+    width: 12%;
+    height: 90px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float:left;
+    line-height: 140px;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 30px;
+    background-image: url("../images/whitemarble.png");
+}
+
+.scoredesc{
+    margin-left:35%;
+    margin-top:50%;
+    float:left;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 30px;
+}
+.whitemarbleScore {
+    margin-left:16%;
+    width: 70%;
+    height: 500%;    
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float:left;
+    line-height: 140px;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+
+.score-card{
+
+    margin-top: 2%;
+    border-radius: 20%;
+    background-color: silver;
+}
+
+.score-card-black{
+    margin-top: 5%;
+    border-radius: 20%;
+   background-color: silver;
+
+}
+.blackmarble {
+    
+    width: 12%;
+    height: 90px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float:left;
+    line-height: 140px;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 30px;
+    background-image: url("../images/blackmarble.png");
+}
+
+
+#message-list {
+  border-style: outset;
+  height: 55rem;
+  padding: 1%;
+  overflow: scroll;
+  margin-bottom: 1%;
+  margin-right: 15%;
+  font-family: "Times New Roman";
+  background-image : url("../images/message.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.chat-header{ 
+  border-radius: 10%;
+  border-style: outset;
+  font-family: "Times New Roman";  
+  text-align: center;
+  background-color: #D4CDBB;
+  font-weight: bold;
+  margin-top: 15%;
+  margin-right: 15%;
+  opacity: 0.9;
+  height: 4%;
+  padding: 1%;
+}
+
+.chat-messages{
+    width: 90%;
+    background-color: #B4C3BC;
+    opacity: 0.90;
+    border-radius: 10%;
+    font-size: 20px;    
+    font-family: "Times New Roman";
+    padding: 1.7%;
+    margin-top: 1.7%;
+}
+
+#chat-input {
+  overflow: auto; 
+  margin-bottom: 1%;
+  margin-left:1%;
+  margin-right: 15%;
+  height: 4%;
+}
+
+.select-user{
+    width: 100%;
+    font-family: "Times New Roman";
+    font-weight:bold;
+}
+
+.ghostwhite{
+
+    background-color:#FAFAD2;  //#f0ffff;
+    opacity:0.2;
+}
+
+
+.whitemarble_highlight {
+
+    width: 12%;
+    height: 90px;
+    border: 4px solid black;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float:left;
+    line-height: 140px;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 30px;
+    background-image: url("../images/whitemarbehighlight.png");
+    background-repeat: no-repeat;
+}
+
+.blackmarble_highlight {
+    
+    width: 12%;
+    height: 90px;
+    border: 4px solid black;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float:left;
+    line-height: 140px;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 30px;
+    background-image: url("../images/blackmarblehighlight.png");
+}
+
+
+.whitepiecetemp {
+
+    width: 80%;
+    height: 80%;
+    border-radius: 35px;
+    margin: 10%;
+    cursor:move;
+    background-image: url("../images/whitepiecetemp.png");
+    
+    background-size: contain;
+}
+
+.piece {
+    width: 80%;
+    height: 80%;
+    border-radius: 35px;
+    margin: 10%;    
+    overflow: hidden;
+    position: relative;
+    background-color:white;
+    cursor: grab;
+    transition: all 0.4s ease-in-out;
+}
+
+.containerboard {
+    width: 60em;
+    height:60em;
+}
+
+.scorerem { 
+    margin-left:40%;
+    margin-right:40%;
+    margin-bottom:3%;
+    width: 22%;
+    height: 20%;    
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float:left;
+    line-height: 200%;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 30px;  
+}
+
+
+.scrpiece {
+    width: 80%;
+    height: 80%;
+    border-radius: 75px;
+    margin: 10%;    
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+}
+
+.white {
+    box-shadow:
+        inset 0 0 0 8px #F0D6B5, 
+        0 1px 2px red;
+    background-image: url("../images/white.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+.black {
+    box-shadow: 
+    inset 0 0 0 8px #909089,
+    0 1px 2px red;
+    transition: all 0.4s ease-in-out;
+    background-image: url("../images/black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+.piece:before {
+  content: "";
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+  -webkit-filter: blur(5px);
+  z-index: 2;
+}
+
+.blackking{
+    box-shadow: 
+    inset 0 0 0 6px silver,
+    0 1px 6px   #DC143C;
+    transition: all 0.4s ease-in-out;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEACXbQIik0tE0Xvx5HZBDn5OKgB88hxGc-Y16p-uecJ2lHLptzQ");
+    //background-image: url("../images/blackking.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+.whiteking{
+    box-shadow: 
+    inset 0 0 0 6px #FAEBD7,
+    0 1px 6px   #DC143C;
+    transition: all 0.4s ease-in-out;
+    background-image: url("../images/whiteking.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+
+
+.scrcircle {
+    width: 80%;
+    height: 80%;
+    border-radius: 80%;
+    margin: 10%;    
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+     box-shadow: 
+    inset 0 0 0 6px #FAEBD7,
+    0 1px 6px   #DC143C;
+    transition: all 0.4s ease-in-out;
+    background-color: beige;
+    opacity: 0.9;
+}
+
+
+.align-text-center{
+    padding-left: 90px;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/overlay.png");
+}
+
+
+
+.player-details {
+    border-radius: 15%;
+    font-size: larger;
+    margin-left: 25%;
+    font-size: 120%;
+    font-family: Copperplate Gothic Bold;
+    background-color: antiquewhite;
+}
+
+
+
+.main_row{
+    margin-top: 3%; 
+}
+ 
+.img1{
+    border-radius: 50%; 
+    height: 100%; 
+    width: 30%;
+    margin-left: 70%;
+}
+ 
+.img2{
+    border-radius: 50%; 
+    height: 100%; 
+    width: 30%;
+}
+ 
+.inside_row{
+    text-align:center;
+}
+ 
+.secondary_row{
+    text-align:center;
+    margin-top: 3%;
+}
+ 
+.user_name{
+    margin-left: 1.2%;
+}
+ 
+.submit_class{
+    margin-left: 0.3%;
+}
+ 
+.header_text{
+    text-align: center; 
+        font-size: 85px;
+}
